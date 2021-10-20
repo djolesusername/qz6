@@ -1,3 +1,141 @@
+:root {
+  --moderate-cyan: hsl(176, 50%, 47%);
+  --dark-cyan: hsl(176, 72%, 28%);
+  --dark-grey: hsl(0, 0%, 48%);
+}
+
 body {
-  background-color: violet;
+  font-family: "Commissioner", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.header-image {
+  background-image: url("./images/image-hero-desktop.jpg");
+  background-size: 100vw 400px;
+  background-repeat: no-repeat;
+  height: 400px;
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  position: relative;
+}
+
+nav {
+  list-style-type: none;
+  padding-top: 1.5rem;
+}
+
+.logo {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  margin-right: 2rem;
+}
+
+.nav-div {
+  color: aqua;
+}
+
+.top-div {
+  transform: translateY(-50%);
+  justify-self: center;
+  margin: 0% 25%;
+  text-align: center;
+  background-color: white;
+  padding-bottom: 2rem;
+}
+
+.mastercraft {
+  transform: translateY(-50%);
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-around;
+  margin-top: 0.7rem;
+}
+button {
+  height: 2.8rem;
+  border-radius: 120px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background-color: var(--moderate-cyan);
+  color: white;
+  border: none;
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+button:hover,
+button:active,
+button:focus {
+  background-color: var(--dark-cyan);
+}
+.bookmark {
+  background-image: "./images/icon-bookmark.svg";
+  background-repeat: no-repeat;
+  height: 2.6rem;
+  border-radius: 120px;
+  position: relative;
+  display: grid;
+  align-content: space-around;
+  width: 10rem;
+  background-color: lightgrey;
+  margin-top: 2rem;
+}
+
+.bookmark-image {
+  height: 2.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bookmarktext {
+  padding-left: 1rem;
+}
+.money-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 0% 25%;
+  align-content: center;
+  background-color: white;
+  transform: translateY(-100px);
+  padding: 2% 0;
+}
+.primary {
+  font-weight: 800;
+  padding-left: 2rem;
+  font-size: 2rem;
+}
+.option {
+  font-weight: 400;
+  padding-left: 2rem;
+}
+
+.progressbar {
+  position: relative;
+  display: block;
+  border-radius: 80px;
+  height: 1rem;
+  background-color: #f2f2f2;
+  grid-column: 1 / span3;
+  margin: 2rem 2rem 1rem 2rem;
+}
+
+.progressbar span {
+  width: 89%;
+  background-color: var(--moderate-cyan);
+  display: inline-block;
+  height: 1rem;
+  overflow: hidden;
+  border-radius: 80px;
 }
