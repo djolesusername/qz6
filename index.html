@@ -17,7 +17,7 @@
 </div>
 <div class="nav-div">
 <nav>
-  <a href="#">About</a> 
+  <a href="#about">About</a> 
   <a href="#">Discover</a> 
   <a href="#">Get Started</a> 
   </nav>
@@ -58,57 +58,94 @@
 </div>
   </div> 
 
-  <div>
-  About this project
+  <div class="pledge-container" id="about">
+    <div class="pledge">
+  <h2>About this project </h2>
 
   The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen 
   to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve 
   your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
 
-  Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
-  to allow notepads, pens, and USB sticks to be stored under the stand.
+  <p>Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
+  to allow notepads, pens, and USB sticks to be stored under the stand. </p>
+  </div>
+  <div class="pledge-div">   <div class="pledge-heading">Bamboo Stand </div>
+    <div class="pledge-amount">Pledge $25 or more </div>
+   <div class="pledge-desc"> You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
+    you’ll be added to a special Backer member list.
+   </div>
+   <div class="pledge-remaining">
+    <span class="pledge-remaining-number">101 </span> <span> left </span> </div>
+  <div>  <button id="myBtn" class="select-reward"> Select Reward </button></div> </div>
+  <div class="pledge-div"><div class="pledge-heading"> Black Edition Stand </div>
+  <div class="pledge-amount"> Pledge $75 or more</div>
+  <div class="pledge-desc"> You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
+    member list. Shipping is included.</div>
+    <div class="pledge-remaining">
+      <span class="pledge-remaining-number">64 </span> <span> left </span> </div>
+    <div><button id="myBtn2" class="select-reward">Select Reward </button> </div></div>
+
+  <div class="pledge-div"> <div class="pledge-heading"> Mahogany Special Edition</div>
+  <div class="pledge-amount"> Pledge $200 or more</div>
+  <div class="pledge-desc">You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
+    to our Backer member list. Shipping is included.</div>
+    <div class="pledge-remaining">
+      <span class="pledge-remaining-number"> 0 </span> <span> left </span> </div>
+      <div><button id="myBtn3" class="select-reward">Out of Stock </button> </div></div>
+
+
   
-  Bamboo Stand
-  Pledge $25 or more
-  You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
-  you’ll be added to a special Backer member list.
-  101 left
-  Select Reward
 
-  Black Edition Stand
-  Pledge $75 or more
-  You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
-  member list. Shipping is included.
-  64 left
-  Select Reward
-
-  Mahogany Special Edition
-  Pledge $200 or more
-  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added 
-  to our Backer member list. Shipping is included.
-  0 left
-  Out of Stock
+ 
   </div>
 
   <!-- Selection modal start -->
-
+<div id="myModal" class="modal">
+  <div class="modal-content">
+      <!-- Success modal end -->
+  <span class="close" id="close">&times;</span>
+ 
+<div >
   Back this project
   Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
-
-  Pledge with no reward
-  Choose to support us without a reward if you simply believe in our project. As a backer, 
-  you will be signed up to receive product updates via email.
-
-  Bamboo Stand
-  Pledge $25 or more
-  You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+</div>
+<form action="/">
+<div class="pledge-div modal-pledge-div no-pledge-option"> 
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio1" name="pledge_selection" value="0"></div>
+<div><label for="no-reward">Pledge with no reward</label> </div>
+<div class="modal-description"> Choose to support us without a reward if you simply believe in our project. As a backer, 
+  you will be signed up to receive product updates via email. </div>
+</div> 
+<div class="pledge-div modal-pledge-div">
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio2" onClick="handleClick(this)" name="pledge_selection" value="1">
+     </div>
+     <div> <label for="bamboo-stand">Bamboo Stand</label></div>
+  
+  <div class="pledge-amount"> Pledge $25 or more </div>
+ <div> <span class="pledge-remaining-number">101 </span> <span> left </span> </div>
+  <div class="modal-description">You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
   you’ll be added to a special Backer member list.
-  101 left
-
+   </div>
+   <div class="container-optional">
+  <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="submit">Continue </button></div>
+</div>
+</div>
+<div class="pledge-div modal-pledge-div">
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio3" name="pledge_selection" onClick="handleClick(this)" value="2">
+     </div>
+     <div> <label for="bamboo-stand"> Black Edition Stand</label></div>
+  
+  <div class="pledge-amount">   Pledge $75 or more </div>
+ <div> <span class="pledge-remaining-number">64 </span> <span> left </span> </div>
+  <div class="modal-description">  You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+    member list. Shipping is included.
+   </div>
+   <div class="container-optional">
+    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="submit">Continue </button></div>
+  </div>
+</div></form>
   <!-- Selected pledge start -->
-  Enter your pledge
-  $25
-  Continue
+ 
   <!-- Selected pledge end -->
 
   Black Edition Stand
@@ -144,7 +181,11 @@
   an email once our campaign is completed.
   Got it!
 
-  <!-- Success modal end -->
+
+  <p>Some text in the Modal..</p>
+  </div>
+  
+  </div>
 </body>
 <script src="script.js"></script>
 </html>
