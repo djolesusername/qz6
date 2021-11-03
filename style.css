@@ -76,9 +76,7 @@ button:focus {
   background-color: var(--dark-cyan);
 }
 .bookmark {
-  background-image: "./images/icon-bookmark.svg";
-  background-repeat: no-repeat;
-  height: 2.6rem;
+  height: 2.8rem;
   border-radius: 120px;
   position: relative;
   display: grid;
@@ -86,6 +84,13 @@ button:focus {
   width: 10rem;
   background-color: lightgrey;
   margin-top: 2rem;
+  background-image: url("./images/icon-bookmark.svg");
+  background-repeat: no-repeat;
+  background-size: 2.8rem;
+}
+.bookmarked {
+  background-image: url("./images/icon-bookmark2.svg");
+  color: var(--dark-cyan);
 }
 
 .bookmark-image {
@@ -98,6 +103,7 @@ button:focus {
 .bookmarktext {
   padding-left: 1rem;
 }
+
 .money-container,
 .pledge-container {
   display: grid;
@@ -260,6 +266,7 @@ h2,
 }
 .amount-holder input {
   width: 100px;
+  border: none;
 }
 .submit-pledge {
   text-align: right;
@@ -274,4 +281,23 @@ h2,
 }
 .optional-visible {
   display: block;
+}
+
+#modalS {
+  margin: auto;
+}
+#modalS .modal-content {
+  width: 33%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-content h2 {
+  text-align: center;
+}
+.check {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }

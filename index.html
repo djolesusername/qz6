@@ -33,7 +33,7 @@
       <div>
       <button type="button" class="tbc">     
         Back this project      </button> </div>
-        <div  class="bookmark">  <img src = "./images/icon-bookmark.svg" class="bookmark-image" alt="My Happy SVG"/> <span class="bookmarktext">Bookmark </span></button>
+        <div  class="bookmark bookmarked">  <span class="bookmarktext">Bookmark </span></button>
 
     </div>
      </div>
@@ -41,11 +41,11 @@
 </div>
 <div class="money-container">
 <div>
- <div  class="primary"> $89,914  </div>
+ <div  class="primary" id="currentAmount"> $89,914  </div>
  <div class="option"> of $100,000 backed</div>
 </div>
 <div>
-  <div  class="primary"> 5,007  </div>
+  <div  class="primary" id="currentBakers"> 5,007  </div>
   <div class="option">  total backers</div>
  </div>
  <div>
@@ -105,7 +105,7 @@
       <!-- Success modal end -->
   <span class="close" id="close">&times;</span>
  
-<div >
+<div id="default-modal">
   Back this project
   Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?
 </div>
@@ -127,7 +127,7 @@
   you’ll be added to a special Backer member list.
    </div>
    <div class="container-optional">
-  <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="submit">Continue </button></div>
+  <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button id="modalEnd1" type="click">Continue </button></div>
 </div>
 </div>
 <div class="pledge-div modal-pledge-div">
@@ -141,25 +141,12 @@
     member list. Shipping is included.
    </div>
    <div class="container-optional">
-    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="submit">Continue </button></div>
+    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="click" id="modalEnd2">Continue </button></div>
   </div>
 </div></form>
   <!-- Selected pledge start -->
  
-  <!-- Selected pledge end -->
-
-  Black Edition Stand
-  Pledge $75 or more
-  You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-  member list. Shipping is included.
-  64 left
-
-  <!-- Selected pledge start -->
-  Enter your pledge
-  $75
-  Continue
-  <!-- Selected pledge end -->
-
+ 
   Mahogany Special Edition
   Pledge $200 or more
   You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
@@ -176,16 +163,27 @@
 
   <!-- Success modal start -->
 
-  Thanks for your support!
-  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-  an email once our campaign is completed.
-  Got it!
+ 
 
 
   <p>Some text in the Modal..</p>
   </div>
   
   </div>
+
+<div  id="modalS" class="modal">
+  <div class="modal-content">
+    <!-- Success modal end -->
+<span class="close" id="closeS">&times;</span>
+<div class="check"> <img src="./images/icon-check.svg" alt=""></div>
+<h2>Thanks for your support! </h2>
+Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+an email once our campaign is completed.<br>
+<button class="close-modal"type="click">
+Got it!
+</button>
+  </div>
+
 </body>
 <script src="script.js"></script>
 </html>
