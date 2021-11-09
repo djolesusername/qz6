@@ -107,5 +107,39 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+//Bookmark button logic
 const bookmarkButton = document.getElementsByClassName("bookmarktext")[0];
-console.log(bookmarkButton.innerText);
+
+let bookmarked = false;
+const bookmarkDiv = document.getElementsByClassName("bookmark")[0];
+
+bookmarkDiv.addEventListener("click", () => {
+  bookmarked = !bookmarked;
+  localStorage.setItem("crowdfund.bamboo", bookmarked);
+  bookmarkExecute();
+});
+
+const checkBookmarked = () => {
+  if (localStorage.getItem("crowdfund.bamboo") == "true") {
+    bookmarked = true;
+  }
+  bookmarkExecute();
+};
+
+const bookmarkExecute = () => {
+  if (Boolean(bookmarked)) {
+    bookmarkDiv.classList.add("bookmarked");
+    localStorage.setItem("crowdfund.bamboo", true);
+  }
+  if (!Boolean(bookmarked)) {
+    bookmarkDiv.classList.remove("bookmarked");
+    localStorage.setItem("crowdfund.bamboo", false);
+  }
+};
+
+window.addEventListener("DOMContentLoaded", () => {
+  checkBookmarked();
+});
+
+//inactive style

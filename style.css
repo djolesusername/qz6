@@ -2,6 +2,7 @@
   --moderate-cyan: hsl(176, 50%, 47%);
   --dark-cyan: hsl(176, 72%, 28%);
   --dark-grey: hsl(0, 0%, 48%);
+  --moderate-cyan2: hsla(176, 50%, 47%, 0.3);
 }
 
 body {
@@ -23,7 +24,8 @@ body {
   position: relative;
 }
 
-nav {
+nav,
+.hamburger-holder {
   list-style-type: none;
   padding-top: 1.5rem;
 }
@@ -44,7 +46,12 @@ nav a {
   margin: 0% 25%;
   text-align: center;
   background-color: white;
-  padding-bottom: 1.2rem;
+  padding-bottom: 1.8rem;
+  border-radius: 1rem;
+}
+.top-div h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .mastercraft {
@@ -55,19 +62,20 @@ nav a {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-around;
-  margin-top: 0.7rem;
+  margin-top: 1rem;
 }
 button {
   height: 2.8rem;
   border-radius: 120px;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 1.4rem;
+  padding-left: 1.4rem;
   background-color: var(--moderate-cyan);
   color: white;
   border: none;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-size: 1rem;
   font-weight: 700;
+  cursor: pointer;
 }
 
 button:hover,
@@ -83,14 +91,16 @@ button:focus {
   align-content: space-around;
   width: 10rem;
   background-color: lightgrey;
-  margin-top: 2rem;
+  margin-top: 1rem;
   background-image: url("./images/icon-bookmark.svg");
   background-repeat: no-repeat;
   background-size: 2.8rem;
+  cursor: pointer;
 }
 .bookmarked {
   background-image: url("./images/icon-bookmark2.svg");
   color: var(--dark-cyan);
+  background-color: var(--moderate-cyan2);
 }
 
 .bookmark-image {
@@ -101,7 +111,8 @@ button:focus {
 }
 
 .bookmarktext {
-  padding-left: 1rem;
+  padding-left: 1.4rem;
+  font-weight: 700;
 }
 
 .money-container,
@@ -113,12 +124,13 @@ button:focus {
   background-color: white;
   transform: translateY(-110px);
   padding: 2% 0;
+  margin-top: 0.8rem;
+  border-radius: 1rem;
 }
 
 .pledge-container {
   transform: translateY(-100px);
   grid-template-columns: auto;
-  margin-top: 1rem;
   padding: 3rem;
   padding-top: 1rem;
   color: var(--dark-grey);
@@ -300,4 +312,70 @@ h2,
 .check {
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
+}
+.hamburger-holder {
+  display: none;
+}
+@media only screen and (max-width: 850px) {
+  .header-image {
+    background-image: url("./images/image-hero-mobile.jpg");
+    background-size: 100vw 400px;
+  }
+  .top-div,
+  .money-container,
+  .pledge-container {
+    margin: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .nav-div {
+    display: none;
+  }
+  .hamburger-holder {
+    display: block;
+  }
+  .bookmarktext {
+    display: none;
+  }
+  .bookmark {
+    height: 2.8rem;
+    width: 2.8rem;
+  }
+  .money-container {
+    margin: 0;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    display: grid;
+    padding: 1rem;
+    justify-content: center;
+    position: relative;
+  }
+  .money-container div {
+    padding-top: 1rem;
+    width: 90vw;
+    text-align: center;
+  }
+  .item1 {
+    grid-row: 1;
+  }
+  .item2 {
+    grid-row: 2;
+  }
+  .item3 {
+    grid-row: 3;
+  }
+  .progressbar {
+    grid-column: 1;
+    margin: 0;
+    padding: 0;
+    margin-top: 1rem;
+
+    text-align: left !important;
+    padding-top: 0 !important;
+  }
+
+  .progressbar span {
+    padding: 0;
+    margin: 0;
+  }
 }
