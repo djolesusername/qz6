@@ -32,12 +32,15 @@ const updateSlidebar = (pledgeAmount) => {
 // Get the modal
 var modal = document.getElementById("myModal");
 var modalS = document.getElementById("modalS");
+var modalH = document.getElementById("modalM");
 
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
 var btn4 = document.getElementsByClassName("tbc")[0];
+var btnH = document.getElementsByClassName("hamburger-holder")[0];
+var logo = document.getElementsByClassName("logo")[0];
 var closeModal = document.getElementsByClassName("close-modal")[0];
 //var mdBtn2 = document.getElementById("modalEnd2");
 
@@ -45,6 +48,7 @@ var closeModal = document.getElementsByClassName("close-modal")[0];
 //var span = document.getElementsByClassName("close")[0];
 var span = document.getElementById("close");
 var spanS = document.getElementById("closeS");
+var spanH = document.getElementById("closeH");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
@@ -58,6 +62,11 @@ btn3.onclick = function () {
 };
 btn4.onclick = function () {
   modal.style.display = "block";
+};
+btnH.onclick = function () {
+  modalM.style.display = "block";
+  btnH.style.visibility = "hidden";
+  logo.style.visibility = "hidden";
 };
 closeModal.onclick = function () {
   modalS.style.display = "none";
@@ -96,6 +105,11 @@ spanS.onclick = function () {
   modalS.style.display = "none";
 };
 
+spanH.onclick = function () {
+  modalH.style.display = "none";
+  btnH.style.visibility = "visible";
+  logo.style.visibility = "visible";
+};
 // When the user clicks anywhere outside of the modal, close it
 
 window.onclick = function (event) {
@@ -105,6 +119,12 @@ window.onclick = function (event) {
 
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+
+  if (event.target == modalH) {
+    modalH.style.display = "none";
+    btnH.style.visibility = "visible";
+    logo.style.visibility = "visible";
   }
 };
 
