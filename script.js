@@ -1,14 +1,17 @@
 //radiobuttons
 var buttons = document.getElementsByClassName("input-number");
+var remainingStands = document.getElementsByClassName("pledge-remaining-number");
 
 function handleClick(radio) {
   //clearing any open
   Array.from(buttons).forEach(function (currentValue, currentIndex, listObj) {
     currentValue.parentElement.parentElement.lastElementChild.classList.remove("optional-visible");
+    currentValue.parentElement.parentElement.classList.remove("modal-selected");
   });
 
   //opening selected
   radio.parentElement.parentElement.lastElementChild.classList.add("optional-visible");
+  radio.parentElement.parentElement.classList.add("modal-selected");
 }
 
 const updateSlidebar = (pledgeAmount) => {
@@ -21,7 +24,6 @@ const updateSlidebar = (pledgeAmount) => {
   newAmountString = newAmountString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.getElementById("currentAmount").firstChild.textContent = newAmountString;
   //Split working only for up to 4-6 digit gotta work on that
-  console.log(document.getElementById("currentBakers"));
   const currentBakers = document.getElementById("currentBakers").innerHTML;
   let indexCommaB = currentBakers.indexOf(",");
   let currentAmountB = Number(currentBakers.slice(0, indexCommaB) + currentBakers.slice(indexCommaB + 1));
@@ -50,18 +52,31 @@ var span = document.getElementById("close");
 var spanS = document.getElementById("closeS");
 var spanH = document.getElementById("closeH");
 
+const selectRadio = (targetRadio) => {
+  const selectMe = document.querySelector(`#${targetRadio}`);
+  handleClick(selectMe);
+  selectMe.checked = true;
+};
 // When the user clicks on the button, open the modal
-btn.onclick = function () {
+btn.onclick = function (e) {
   modal.style.display = "block";
+  const targetRadio = e.originalTarget.dataset.type;
+  selectRadio(targetRadio);
 };
-btn2.onclick = function () {
+btn2.onclick = function (e) {
   modal.style.display = "block";
+  const targetRadio = e.originalTarget.dataset.type;
+  selectRadio(targetRadio);
 };
-btn3.onclick = function () {
+btn3.onclick = function (e) {
   modal.style.display = "block";
+  const targetRadio = e.originalTarget.dataset.type;
+  selectRadio(targetRadio);
 };
-btn4.onclick = function () {
+btn4.onclick = function (e) {
   modal.style.display = "block";
+  const targetRadio = e.originalTarget.dataset.type;
+  selectRadio(targetRadio);
 };
 btnH.onclick = function () {
   modalM.style.display = "block";
@@ -71,6 +86,18 @@ btnH.onclick = function () {
 closeModal.onclick = function () {
   modalS.style.display = "none";
 };
+
+document.querySelector("#modalEnd0").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    let pledgeAmount = 0;
+    updateSlidebar((pledgeAmount = 0));
+    modal.style.display = "none";
+    modalS.style.display = "block";
+  },
+  false
+);
 
 document.querySelector("#modalEnd1").addEventListener(
   "click",
@@ -95,7 +122,30 @@ document.querySelector("#modalEnd2").addEventListener(
   },
   false
 );
+document.querySelector("#modalEnd3").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    let pledgeAmount = event.originalTarget.previousElementSibling.firstChild.value;
+    updateSlidebar(pledgeAmount);
+    modalS.style.display = "block";
+    modal.style.display = "none";
+  },
+  false
+);
 
+/*document.querySelectorAll(".modalEnd").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+    let pledgeAmount = event.originalTarget.previousElementSibling.firstChild.value;
+    updateSlidebar(pledgeAmount);
+    modal.style.display = "none";
+    modalS.style.display = "block";
+  },
+  false
+);
+*/
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
   modal.style.display = "none";
@@ -157,9 +207,32 @@ const bookmarkExecute = () => {
     localStorage.setItem("crowdfund.bamboo", false);
   }
 };
+const checkOOS = () => {
+  // class pledge-remaining-number
+  Array.from(remainingStands).forEach(function (currentValue, currentIndex, listObj) {
+    if (Number(currentValue.innerHTML) < 1) {
+      console.log(currentValue.parentElement.parentElement);
+      currentValue.parentElement.parentElement.classList.add("outOfStock");
+      let oosButton = currentValue.parentElement.parentElement.querySelector("button");
+      let oosInput = currentValue.parentElement.parentElement.querySelector("input");
 
+      if (oosInput) {
+        oosInput.disabled = "true";
+      }
+      oosButton.innerHTML = "Out of Stock";
+      oosButton.classList.add("outOfStockGrey");
+      oosButton.disabled = true;
+      oosButton.onclick = function () {
+        return false;
+      };
+    }
+    //  currentValue.parentElement.parentElement.lastElementChild.classList.remove("optional-visible");
+    //  currentValue.parentElement.parentElement.classList.remove("modal-selected");
+  });
+};
 window.addEventListener("DOMContentLoaded", () => {
   checkBookmarked();
+  checkOOS();
 });
 
 //inactive style

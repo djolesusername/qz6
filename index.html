@@ -46,7 +46,7 @@
   
     <div class="button-container"> 
       <div>
-      <button type="button" class="tbc">     
+      <button type="button" class="tbc" data-type="radio1">     
         Back this project      </button> </div>
         <div  class="bookmark">  <span class="bookmarktext">Bookmark </span></button>
 
@@ -91,14 +91,14 @@
    </div>
    <div class="pledge-remaining">
     <span class="pledge-remaining-number">101 </span> <span> left </span> </div>
-  <div>  <button id="myBtn" class="select-reward"> Select Reward </button></div> </div>
+  <div>  <button id="myBtn" class="select-reward" data-type="radio2"> Select Reward </button></div> </div>
   <div class="pledge-div"><div class="pledge-heading"> Black Edition Stand </div>
   <div class="pledge-amount"> Pledge $75 or more</div>
   <div class="pledge-desc"> You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer 
     member list. Shipping is included.</div>
     <div class="pledge-remaining">
       <span class="pledge-remaining-number">64 </span> <span> left </span> </div>
-    <div><button id="myBtn2" class="select-reward">Select Reward </button> </div></div>
+    <div><button id="myBtn2" class="select-reward" data-type="radio3">Select Reward </button> </div></div>
 
   <div class="pledge-div"> <div class="pledge-heading"> Mahogany Special Edition</div>
   <div class="pledge-amount"> Pledge $200 or more</div>
@@ -106,7 +106,7 @@
     to our Backer member list. Shipping is included.</div>
     <div class="pledge-remaining">
       <span class="pledge-remaining-number"> 0 </span> <span> left </span> </div>
-      <div><button id="myBtn3" class="select-reward">Out of Stock </button> </div></div>
+      <div><button id="myBtn3" class="select-reward" data-type="radio4">Select Reward </button> </div></div>
 
 
   
@@ -128,13 +128,16 @@
 </div>
 <form action="/">
 <div class="pledge-div modal-pledge-div no-pledge-option"> 
-  <div class="input-holder"> <input class="input-number" type="radio" id="radio1" name="pledge_selection" value="0"></div>
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio1" name="pledge_selection" onClick="handleClick(this)" value="0"></div>
 <div><label for="no-reward">Pledge with no reward</label> </div>
 <div class="modal-description"> Choose to support us without a reward if you simply believe in our project. As a backer, 
   you will be signed up to receive product updates via email. </div>
+  <div class="container-optional">
+      <div class="submit-pledge"><div class="amount-holder"></div>  <button type="click" class="modalEnd" id="modalEnd0">Continue </button></div>
+  </div>
 </div> 
-<div class="pledge-div modal-pledge-div">
-  <div class="input-holder"> <input class="input-number" type="radio" id="radio2" onClick="handleClick(this)" name="pledge_selection" value="1">
+<div class="pledge-div modal-pledge-div" id="r25">
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio2" onClick="handleClick(this)" name="pledge_selection" value="25">
      </div>
      <div> <label for="bamboo-stand">Bamboo Stand</label></div>
   
@@ -144,11 +147,11 @@
   you’ll be added to a special Backer member list.
    </div>
    <div class="container-optional">
-  <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button id="modalEnd1" type="click">Continue </button></div>
+  <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button id="modalEnd1" class="modalEnd" type="click">Continue </button></div>
 </div>
 </div>
-<div class="pledge-div modal-pledge-div">
-  <div class="input-holder"> <input class="input-number" type="radio" id="radio3" name="pledge_selection" onClick="handleClick(this)" value="2">
+<div class="pledge-div modal-pledge-div" id="r75">
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio3" name="pledge_selection" onClick="handleClick(this)" value="75">
      </div>
      <div> <label for="bamboo-stand"> Black Edition Stand</label></div>
   
@@ -158,22 +161,33 @@
     member list. Shipping is included.
    </div>
    <div class="container-optional">
-    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="25" value="25"></div>  <button type="click" id="modalEnd2">Continue </button></div>
+    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="75" value="75"></div>  <button type="click" class="modalEnd" id="modalEnd2">Continue </button></div>
   </div>
-</div></form>
+</div>
+<div class="pledge-div modal-pledge-div" id="r200">
+  <div class="input-holder"> <input class="input-number" type="radio" id="radio4" name="pledge_selection" onClick="handleClick(this)" value="200">
+     </div>
+     <div> <label for="Mahogany Special Edition">   Mahogany Special Edition
+    </label></div>
+  
+  <div class="pledge-amount">   Pledge $200 or more </div>
+ <div class="pledge-remaining-number-div"> <span class="pledge-remaining-number">0 </span> <span> left </span> </div>
+  <div class="modal-description">  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+    to our Backer member list. Shipping is included.
+   </div>
+   <div class="container-optional">
+    <div class="row-text"> Enter your pledge</div>  <div class="submit-pledge"><div class="amount-holder"><input type="number" id="amount" min="200" value="200"></div>  <button type="click" class="modalEnd" id="modalEnd3">Continue </button></div>
+  </div>
+</div>
+
+</form>
   <!-- Selected pledge start -->
  
  
-  Mahogany Special Edition
-  Pledge $200 or more
-  You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-  to our Backer member list. Shipping is included.
-  0 left
+ 
 
   <!-- Selected pledge  start -->
-  Enter your pledge
-  $200
-  Continue
+ 
   <!-- Selected pledge end -->
 
   <!-- Selection modal end -->
@@ -183,7 +197,6 @@
  
 
 
-  <p>Some text in the Modal..</p>
   </div>
   
   </div>

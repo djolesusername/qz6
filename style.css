@@ -194,6 +194,10 @@ button:focus {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+label {
+  font-weight: 700;
+  color: black;
+}
 h2,
 .pledge-heading,
 .pledge-remaining,
@@ -251,12 +255,13 @@ h2,
 }
 
 .modal-pledge-div {
-  grid-template-columns: 6% 30% 30% 30%;
+  grid-template-columns: 4% 30% 30% 30%;
   margin: 0;
-  padding: 0;
-  padding-top: 0.5 rem;
+  padding: 1rem;
+  padding-top: 0.5rem;
   text-align: left;
   margin-top: 0.5rem;
+  display: grid;
 }
 .no-pledge-option {
   grid-template-columns: 6% 90%;
@@ -264,6 +269,25 @@ h2,
 .row-text {
   grid-column: 1 / 2;
   margin: auto;
+}
+
+.input-number {
+  font-size: 2rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+input[type="radio"]:checked {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: 0.2s all linear;
+  background-color: var(--moderate-cyan);
+  border-radius: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  outline: 1px solid lightgray;
+  outline-offset: 4px;
 }
 .container-optional {
   grid-column: 1 / span 4;
@@ -277,7 +301,7 @@ h2,
   display: inline-block;
 }
 .amount-holder input {
-  width: 100px;
+  width: 80px;
   border: none;
 }
 .submit-pledge {
@@ -285,6 +309,9 @@ h2,
   padding: 1rem;
 }
 
+.modal-selected {
+  border: 2px solid var(--moderate-cyan) !important;
+}
 .submit-pledge input {
   margin-right: 1rem;
 }
@@ -316,7 +343,12 @@ h2,
 .hamburger-holder {
   display: none;
 }
-
+.outOfStock {
+  opacity: 0.5;
+}
+.outOfStockGrey {
+  background-color: grey;
+}
 @media only screen and (max-width: 850px) {
   .header-image {
     background-image: url("./images/image-hero-mobile.jpg");
@@ -417,19 +449,21 @@ h2,
     grid-template-columns: 8% 80%;
     grid-template-rows: auto;
     margin: 0;
-    padding: 0;
-    padding-top: 0.5 rem;
+    padding-top: 0.5rem;
     text-align: left;
     margin-top: 0.5rem;
     display: grid;
+    padding: 1rem;
+    color: grey;
   }
   .no-pledge-option {
-    grid-template-columns: 6% 90%;
+    grid-template-columns: 8% 80%;
   }
   .modal-description {
     grid-column: 1 / span2;
     margin: auto;
     order: 1;
+    padding-top: 1rem;
   }
 
   .pledge-amount {
@@ -486,5 +520,16 @@ h2,
   }
   .logoM {
     left: 5rem;
+  }
+
+  .modal-content {
+    transform: translateY(10%);
+  }
+  .input-holder {
+    display: grid;
+    grid-row: 1 / span 2;
+  }
+  .input-number {
+    align-self: center;
   }
 }
