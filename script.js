@@ -211,7 +211,6 @@ const checkOOS = () => {
   // class pledge-remaining-number
   Array.from(remainingStands).forEach(function (currentValue, currentIndex, listObj) {
     if (Number(currentValue.innerHTML) < 1) {
-      console.log(currentValue.parentElement.parentElement);
       currentValue.parentElement.parentElement.classList.add("outOfStock");
       let oosButton = currentValue.parentElement.parentElement.querySelector("button");
       let oosInput = currentValue.parentElement.parentElement.querySelector("input");

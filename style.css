@@ -235,7 +235,8 @@ h2,
   padding: 20px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
-  transform: translateY(50%);
+  transform: translateY(25%);
+  border-radius: 0.7rem;
 }
 
 /* The Close Button */
@@ -256,19 +257,27 @@ h2,
 
 .modal-pledge-div {
   grid-template-columns: 4% 30% 30% 30%;
-  margin: 0;
-  padding: 1rem;
+  margin: 1rem;
+  padding-left: 0;
+  padding-right: 0;
   padding-top: 0.5rem;
   text-align: left;
   margin-top: 0.5rem;
   display: grid;
 }
+.modal-pledge-div div {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
 .no-pledge-option {
   grid-template-columns: 6% 90%;
 }
 .row-text {
   grid-column: 1 / 2;
-  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
 }
 
 .input-number {
@@ -291,18 +300,56 @@ input[type="radio"]:checked {
 }
 .container-optional {
   grid-column: 1 / span 4;
-  width: 100% - 4px;
+  width: 100%;
   display: grid;
+  position: relative;
   grid-template-columns: 30% 65%;
-  border-top: 1px solid var(--dark-grey);
+  border-top: 1px solid lightgray;
   margin-top: 1rem;
 }
 .amount-holder {
   display: inline-block;
+  position: relative;
 }
 .amount-holder input {
-  width: 80px;
+  width: 2rem;
   border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.8rem;
+  border-radius: 120rem;
+  padding-left: 2rem;
+  border: 1px solid lightgray;
+}
+/* Chrome, Safari, Edge, Opera */
+.amount-holder input::-webkit-outer-spin-button,
+.amount-holder input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.amount-holder::before {
+  content: "$";
+  position: absolute;
+  top: 30%;
+  left: 23%;
+  color: gray;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.pledge-div:not(.outOfStock) label:hover {
+  color: var(--dark-cyan);
+  cursor: pointer;
+}
+.amount-holder input:hover,
+.amount-holder input:active,
+.amount-holder input:focus {
+  outline: none;
+  border: 1px solid var(--moderate-cyan);
 }
 .submit-pledge {
   text-align: right;
@@ -349,6 +396,19 @@ input[type="radio"]:checked {
 .outOfStockGrey {
   background-color: grey;
 }
+.item1,
+.item2 {
+  position: relative;
+}
+.item1:after,
+.item2::after {
+  content: "";
+  position: absolute;
+  border-left: 1px solid lightgray;
+  height: 90%; /* adjust this */
+  right: 0;
+  top: 0;
+}
 @media only screen and (max-width: 850px) {
   .header-image {
     background-image: url("./images/image-hero-mobile.jpg");
@@ -382,6 +442,12 @@ input[type="radio"]:checked {
     padding: 1rem;
     justify-content: center;
     position: relative;
+  }
+  .item1:after,
+  .item2::after {
+    top: 70%;
+    right: 49%;
+    transform: rotate(90deg);
   }
   .money-container div {
     padding-top: 1rem;
@@ -531,5 +597,11 @@ input[type="radio"]:checked {
   }
   .input-number {
     align-self: center;
+  }
+  .row-text {
+    transform: translateY(0);
+    position: unset;
+    top: unset;
+    text-align: center;
   }
 }
