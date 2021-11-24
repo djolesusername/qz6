@@ -60,23 +60,23 @@ const selectRadio = (targetRadio) => {
 // When the user clicks on the button, open the modal
 btn.onclick = function (e) {
   modal.style.display = "block";
-  const targetRadio = e.originalTarget.dataset.type;
-  selectRadio(targetRadio);
+  const targetRadio = e.originalTarget?.dataset.type;
+  targetRadio && selectRadio(targetRadio);
 };
 btn2.onclick = function (e) {
   modal.style.display = "block";
-  const targetRadio = e.originalTarget.dataset.type;
-  selectRadio(targetRadio);
+  const targetRadio = e.originalTarget?.dataset.type;
+  targetRadio && selectRadio(targetRadio);
 };
 btn3.onclick = function (e) {
   modal.style.display = "block";
-  const targetRadio = e.originalTarget.dataset.type;
-  selectRadio(targetRadio);
+  const targetRadio = e.originalTarget?.dataset.type;
+  targetRadio && selectRadio(targetRadio);
 };
 btn4.onclick = function (e) {
   modal.style.display = "block";
-  const targetRadio = e.originalTarget.dataset.type;
-  selectRadio(targetRadio);
+  const targetRadio = e.originalTarget?.dataset.type;
+  targetRadio && selectRadio(targetRadio);
 };
 btnH.onclick = function () {
   modalM.style.display = "block";
@@ -103,10 +103,12 @@ document.querySelector("#modalEnd1").addEventListener(
   "click",
   function (event) {
     event.preventDefault();
-    let pledgeAmount = event.originalTarget.previousElementSibling.firstChild.value;
-    updateSlidebar(pledgeAmount);
-    modal.style.display = "none";
-    modalS.style.display = "block";
+    let pledgeAmount = event.target?.previousElementSibling.firstChild.value;
+    if (pledgeAmount) {
+      updateSlidebar(pledgeAmount);
+      modalS.style.display = "block";
+      modal.style.display = "none";
+    }
   },
   false
 );
@@ -115,10 +117,12 @@ document.querySelector("#modalEnd2").addEventListener(
   "click",
   function (event) {
     event.preventDefault();
-    let pledgeAmount = event.originalTarget.previousElementSibling.firstChild.value;
-    updateSlidebar(pledgeAmount);
-    modalS.style.display = "block";
-    modal.style.display = "none";
+    let pledgeAmount = event.target?.previousElementSibling.firstChild.value;
+    if (pledgeAmount) {
+      updateSlidebar(pledgeAmount);
+      modalS.style.display = "block";
+      modal.style.display = "none";
+    }
   },
   false
 );
@@ -126,10 +130,12 @@ document.querySelector("#modalEnd3").addEventListener(
   "click",
   function (event) {
     event.preventDefault();
-    let pledgeAmount = event.originalTarget.previousElementSibling.firstChild.value;
-    updateSlidebar(pledgeAmount);
-    modalS.style.display = "block";
-    modal.style.display = "none";
+    let pledgeAmount = event.target?.previousElementSibling.firstChild.value;
+    if (pledgeAmount) {
+      updateSlidebar(pledgeAmount);
+      modalS.style.display = "block";
+      modal.style.display = "none";
+    }
   },
   false
 );

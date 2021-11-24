@@ -354,6 +354,7 @@ input[type="number"] {
 .submit-pledge {
   text-align: right;
   padding: 1rem;
+  margin-right: 1rem;
 }
 
 .modal-selected {
